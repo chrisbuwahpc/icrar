@@ -1,7 +1,7 @@
-# small
+# icrar
 
-This project is for using vagrant and virtualbox to manage the environment for 
-the Software Carpentry Training course.
+This project is for using vagrant and virtualbox to manage the virtual environment for 
+the using Swarp and SExtractor as part of the PHYS3003 course at UWA.
 
 ##  setup 
 
@@ -9,23 +9,23 @@ In the same directory where the small directory is going to be installed
 create a directory named *scripts*
 
 ```bash 
-tmep >ls
-tmep >mkdir scripts
-tmep >git clone https://github.com/chrisbpawsey/small.git
-Cloning into 'small'...
+temp >ls
+temp >mkdir scripts
+temp >git clone https://github.com/chrisbpawsey/icrar.git
+Cloning into 'icrar'...
 remote: Enumerating objects: 14, done.
 remote: Counting objects: 100% (14/14), done.
 remote: Compressing objects: 100% (9/9), done.
 remote: Total 14 (delta 3), reused 14 (delta 3), pack-reused 0
 Unpacking objects: 100% (14/14), done.
-tmep >ls
-scripts	small
+temp >ls
+scripts	icrar
 ```
 
 Now you are ready to start vagrant!
 
 ```bash
-cd small
+cd icrar
 ```
 
 You should find a file *Vagrantfile* that is used to start and 
