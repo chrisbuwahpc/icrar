@@ -11,12 +11,14 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
    Vagrant.configure("2") do |config|
-  config.vm.box = "bento/ubuntu-18.04"
 
+   config.vm.box = "bento/ubuntu-20.04"
 
-
+   config.ssh.forward_agent = true
+   config.ssh.forward_x11 = true
+   config.vm.network "forwarded_port", guest: 2222, host: 2222
   # argument is a set of non-required options.
-  config.vm.synced_folder "images", "/home/vagrant/images"
+   config.vm.synced_folder "images", "/home/vagrant/images"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -25,7 +27,7 @@
    config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
-     vb.cpus = "4"
+     vb.cpus = "2"
   #   # Customize the amount of memory on the VM:
      vb.memory = "4096"
    end
@@ -46,10 +48,13 @@
 
      sudo -H -u vagrant bash -c './install_scripts/Install_icrar_vagrant.sh'
      echo "module path variable is $MODULEPATH"
-     sudo -H -u vagrant bash -c './maali -t maali -v 1.5h -c vagrant -d'
-     sudo -H -u vagrant bash -c 'source ~/.bashrc'
-     sudo -H -u vagrant bash -c 'cp ~/maali-1.5/install_scripts/Install_icrar_ubuntu_18.sh ~/setup.sh'
+     sudo -H -u vagrant bash -c './maali -t maali -v 1.5h -c icrar -d'
+     sudo -H -u vagrant bash -c 'source ~/.bashrc
+     sudo -H -u vagrant bash -c 'mkdir -p /home/vagrant/bin' 
+
+     sudo -H -u vagrant bash -c 'cp ~/maali-1.5/install_scripts/Install_icrar_ubuntu_20.sh ~/setup.sh'
 
    SHELL
+   
 
 end
